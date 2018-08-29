@@ -1,0 +1,76 @@
+ <div class="logon_wrapper center">
+	<div class="top">
+		<img src="../../../../assets/logo.png" width="100" />
+		<span class="title">Job Sets</span>
+	</div>
+	<nz-card class="loginCard">
+
+		<div class="login">
+			<div class="ant-divider ant-divider-horizontal ant-divider-with-text">
+				<div class="ant-divider-inner-text">
+					<span>Register</span>
+				</div>
+			</div>
+		</div>
+		<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="register()">
+			<nz-form-item>
+				<nz-form-control>
+					<nz-input-group nzPrefixIcon="anticon anticon-user">
+						<input type="text" nz-input formControlName="userName" placeholder="Username">
+					</nz-input-group>
+					<nz-form-explain *ngIf="validateForm.get('userName').dirty&&validateForm.get('userName').hasError('required')">User Name is required!</nz-form-explain>
+				</nz-form-control>
+			</nz-form-item>
+
+
+			<nz-form-item>
+				<nz-form-control>
+					<nz-input-group nzPrefixIcon="anticon anticon-lock">
+						<input type="password" nz-input formControlName="password" placeholder="Password" formControlName="password">
+					</nz-input-group>
+					<nz-form-explain *ngIf="validateForm.get('password').dirty&&validateForm.get('password').hasError('required')">Password is required!</nz-form-explain>
+				</nz-form-control>
+			</nz-form-item>
+
+			<nz-form-item>
+				<nz-form-control>
+					<nz-input-group nzPrefixIcon="anticon anticon-lock">
+						<input type="password" nz-input formControlName="passwordConfirm" placeholder="Password" formControlName="passwordConfirm">
+					</nz-input-group>
+					<nz-form-explain *ngIf="validateForm.get('passwordConfirm').dirty&&validateForm.get('passwordConfirm').hasError('required')">Password is required!</nz-form-explain>
+				</nz-form-control>
+			</nz-form-item>
+
+			<div class="login-foot">
+				<nz-form-item>
+					<nz-form-control>
+						<div class="remember-me">
+							<a class="login-form-forgot" [routerLink]="['/login']">
+								Login Now
+							</a>
+						</div>
+						<button nz-button class="login-form-button" [nzType]="'Default'">
+							<i *ngIf="IsloginLoading" class="anticon anticon-spin anticon-loading"></i> {{LoginText}}
+						</button>
+					</nz-form-control>
+				</nz-form-item>
+			</div>
+
+		</form>
+
+	</nz-card>
+	<div class="footer">
+		<div class="footer-link">
+			<ul>
+				<li>Help</li>
+				<li>Private</li>
+				<li>About</li>
+			</ul>
+		</div>
+		<div class="footer-copyright">
+			Copyright
+			<i class="anticon anticon-copyright"></i> 2018 Shinetech
+		</div>
+
+	</div>
+</div>

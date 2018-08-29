@@ -1,0 +1,19 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
+
+.header {
+    background-color: #eee;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.logo{
+    margin-left:20px;
+    margin-right: 20px;
+}
+.logo-title{
+    margin-left: 20px;
+}
+::ng-deep.ant-layout-header{
+    height: 200px !important;
+}

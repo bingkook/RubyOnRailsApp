@@ -1,7 +1,3 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-
-  def hello
-    render html: "hello, world!你好世界"
-  end
+class ApplicationController < ActionController::API
+  include DeviseTokenAuth::Concerns::SetUserByToken
 end

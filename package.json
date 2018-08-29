@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
-  "private": true,
-  "dependencies": {}
+    "scripts": {
+        "postinstall": "rm -rf public && cd client && npm install -g @angular/cli && npm install && ng build --prod"
+    }
 }
