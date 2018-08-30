@@ -21,6 +21,11 @@ const routerConfig: Routes = [
         path: "home",
         component: DashboardComponent, 
         canActivate: [AngularTokenService]   
+      },
+      {
+        path: "project",
+        loadChildren: "./project/project.module#ProjectModule", 
+        canActivate: [AngularTokenService]   
       }
     ]
   },

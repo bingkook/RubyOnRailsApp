@@ -16,7 +16,6 @@ import { RestrictedModule} from  './restricted/restricted.module';
 import { routes} from  './app.routes';
 import { environment } from "../environments/environment";
 
-
 @NgModule({
     imports: [
         routes,

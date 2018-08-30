@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   templateUrl: "layout.component.html"
 })
 export class LayoutComponent {
+  isCollapsed=false;
   constructor(private tokenService: AngularTokenService,
     private _router: Router) {}
 
