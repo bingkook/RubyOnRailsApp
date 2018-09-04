@@ -1,8 +1,8 @@
-<form nz-form [formGroup]="validateForm" class="login-form">
+<form nz-form  [formGroup]="validateForm" class="login-form">
 	<nz-form-item>
 		<nz-form-control>
 			<nz-input-group nzPrefixIcon="anticon anticon-user">
-				<input type="text" nz-input formControlName="projectName" placeholder="Project Name">
+				<input type="text" [(ngModel)]="views.name"  nz-input  placeholder="Project Name"  formControlName="projectName">
 			</nz-input-group>
 			<nz-form-explain *ngIf="validateForm.get('projectName').dirty&&validateForm.get('projectName').hasError('required')">Project
 				Name is required!</nz-form-explain>
@@ -11,7 +11,7 @@
 	<nz-form-item>
 		<nz-form-control>
 			<nz-input-group >
-				<textarea row="4" nz-input formControlName="description" placeholder="Description" formControlName="description" ></textarea>
+				<textarea row="4" [(ngModel)]="views.description"  nz-input  formControlName="description"  placeholder="Description"  ></textarea>
 			</nz-input-group>
 		</nz-form-control>
 	</nz-form-item>
@@ -19,9 +19,9 @@
 	<nz-form-item>
 		<nz-form-control>
 			<nz-input-group >
-				<input type="password" nz-input formControlName="passwordConfirm" placeholder="Password" formControlName="passwordConfirm">
+				<nz-range-picker  formControlName="dateRange" [(ngModel)]="views.dateRange" [nzFormat]="'yyyy/MM/dd'"></nz-range-picker>
 			</nz-input-group>
-			<nz-form-explain *ngIf="validateForm.get('passwordConfirm').dirty&&validateForm.get('passwordConfirm').hasError('required')">Password
+			<nz-form-explain *ngIf="validateForm.get('dateRange').dirty&&validateForm.get('dateRange').hasError('required')">Date Range
 				is required!</nz-form-explain>
 		</nz-form-control>
 	</nz-form-item>

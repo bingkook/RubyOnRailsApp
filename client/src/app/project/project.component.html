@@ -6,22 +6,44 @@
 <div style="margin-bottom: 20px;">
 	<button nz-button class="login-form-button" style="width: 120px;" [nzType]="'Default'" (click)="addNewProject()">Add</button>
 </div>
-<nz-table #rowSelectionTable [nzData]="data" (nzCurrentPageDataChange)="currentPageDataChange($event)" (nzPageIndexChange)="refreshStatus()"
- (nzPageSizeChange)="refreshStatus()">
-	<thead>
+<nz-table #nzTable [nzData]="views.projectList" [nzLoading]="views.tableLoading" [nzFrontPagination]="false" [nzPageSize]="params.pageSize"
+ [nzTotal]="views.total" [(nzPageIndex)]="params.page" (nzPageIndexChange)="getProjectList()" (nzCurrentPageDataChange)="currentPageDataChange($event)">
+	<thead nz-thead>
 		<tr>
-			<th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
-			<th>Name</th>
-			<th>Age</th>
-			<th>Address</th>
+			<th nz-th nzCheckbox>
+				<label nz-checkbox [(ngModel)]="allChecked" [nzIndeterminate]="indeterminate" (ngModelChange)="checkAll($event)">
+				</label>
+			</th>
+			<th nz-th>
+				<span>Name</span>
+			</th>
+			<th nz-th>
+				<span>Description</span>
+			</th>
+			<th nz-th>
+				<span>StartAt</span>
+			</th>
+			<th nz-th>
+				<span>EndAt</span>
+			</th>
+			<th nz-th>
+				<span>Command</span>
+			</th>
 		</tr>
 	</thead>
-	<tbody>
-		<tr *ngFor="let data of rowSelectionTable.data">
-			<td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus($event)"></td>
-			<td>{{data.name}}</td>
-			<td>{{data.age}}</td>
-			<td>{{data.address}}</td>
+	<tbody nz-tbody>
+		<tr nz-tbody-tr *ngFor="let data of nzTable.data" style="cursor: pointer;">
+			<td nz-td nzCheckbox>
+				<label nz-checkbox [(ngModel)]="data.checked" (ngModelChange)="refreshStatus($event)">
+				</label>
+			</td>
+			<td nz-td><span [attr.title]="data.note">{{data.name}}</span></td>
+			<td nz-td><span [attr.title]="data.note">{{data.description}}</span></td>
+			<td nz-td><span [attr.title]="data.note">{{data.start_at|date:"yyyy-MM-dd"}}</span></td>
+			<td nz-td><span [attr.title]="data.note">{{data.end_at |date:"yyyy-MM-dd"}}</span></td>
+			<td> <button nz-button nzType="primary" (click)="deleteProject(data)">Delete</button>
+				<button style="margin-left: 15px;" nz-button nzType="default" (click)="editProject(data)">Edit</button>
+			</td>
 		</tr>
 	</tbody>
 </nz-table>

@@ -3,8 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  currentStorageType:'local',
   production: false,
-  rootApiurl:"http://localhost:3000"
+  rootApiurl:"http://localhost:3000/"
 };
 
 /*
