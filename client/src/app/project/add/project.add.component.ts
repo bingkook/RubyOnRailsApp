@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { AngularTokenService, SignInData } from "angular-token";
 import * as fecha from "fecha";
 
 import {
-  HttpErrorResponse,
-  HttpResponse,
   HttpClient
 } from "@angular/common/http";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
